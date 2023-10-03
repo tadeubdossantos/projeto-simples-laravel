@@ -4,6 +4,15 @@ Este é um projeto full stack simples que faz a integração com uma API de usu�
 ## DESENVOLVIMENTO
 Este projeto foi desenvolvido com a utilização do framework Laravel no lado do servidor, enquanto para a interface do usuário, utilizou-se o Blade e o Bootstrap. Quanto à persistência de dados, optou-se por empregar o banco de dados MySQL, através do ambiente de desenvolvimento Xampp.
 
+### Resumo das tarefas realizadas.
+- Após a configuração inicial do Laravel também foi realizado a configuração para trabalhar com Vite junto com Bootstrap.
+- Foi estruturado o template da aplicação como também a definido estrutura de diretórios dos arquivos blade em `recourses/views`.
+- Por conta da aplicação lidar com a entidade usuários e o model correspondente a ela existir, somente inclui o campo `age`, que se refere à idade do usuario, na tabela `users` default do laravel, portanto foi necessário criar uma migration.
+- Criei um Controller chamado `UserController` na qual terá um método que irá lidar com o consumo da API, onde vai pegar os dados desta e irá gravá-las na tabela `users`, adicionalmente foi criado um mecanismo para não gravar registros duplicados.
+- Entre as rotas criadas está aquela que é responsável em consumir a API de usuários, a que exibe a listagem dos usuários e outras referente à edição e exclusão.
+- No controller 'UserController', também foi criado métodos com funcionalidades de consulta, edição e exclusão, e também aquele responsável por exibir a listagem de usuários por paginação.
+- Para validação dos campos no momento da edição de um usuário foi criado a classe `FormRequestUser`.
+  
 ## PASSO À PASSO PARA RODAR O PROJETO
 
 Ligue o serviço do MySQL no xampp: <br/><br/>
