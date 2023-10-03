@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Http;
 
 class UserController extends Controller
 {
-    // consudo da API
+    // consumo da API de usuários
     public function getDataFromAPI() {
         $response = Http::get('https://run.mocky.io/v3/ce47ee53-6531-4821-a6f6-71a188eaaee0');
         if(!$response->successful()) {
@@ -16,19 +16,25 @@ class UserController extends Controller
         }
         $users = $response->json()['users'];
         foreach($users as $u) {
-            User::create([
-                'name' => $u['name'],
-                'age' => $u['age'],
-                'email' => $u['email'],
-                'password' => bcrypt('12345678')
-            ]);
+            try {
+                User::create([
+                    'name' => $u['name'],
+                    'age' => $u['age'],
+                    'email' => $u['email'],
+                    'password' => bcrypt('12345678')
+                ]);
+            }
+            catch (\Illuminate\Database\QueryException $e) {
+                //Caso já constar o usuário então vá para a próxima iteração
+                if ($e->errorInfo[1] === 1062) {
+                    continue;
+                }
+            }
         }
     }
 
     public function index() {
-        // $users = User::all();
         $users = User::paginate(10);
         return view('pages.users.paginacao', compact('users'));
     }
-
 }

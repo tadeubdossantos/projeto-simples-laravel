@@ -28,7 +28,7 @@
             </table>
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-4 offset-sm-8">
+                    <div class="col">
                         {{ $users->links('custom/pagination') }}
                     </div>
                 </div>
