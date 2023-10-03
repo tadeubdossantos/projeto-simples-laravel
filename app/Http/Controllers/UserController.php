@@ -41,7 +41,20 @@ class UserController extends Controller
 
     public function update(FormRequestUser $request, $id) {
 
+        if($request->method() == "PUT") {
+            $data = $request->all();
+            $row = User::find($id);
+            $row->update($data);
+            return redirect()->route('atualiza', $id)->with('success', 'Atualização realizada com sucesso!');
+        }
+
         $findUser = USER::where('id', $id)->first();
         return view('pages.users.atualiza', compact('findUser'));
+    }
+
+    public function delete($id) {
+        $row = USER::find($id);
+        $row->delete();
+        return redirect()->route('home')->with('success', 'Exclusão realizada com sucesso!');
     }
 }

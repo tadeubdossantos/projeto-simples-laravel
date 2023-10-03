@@ -24,10 +24,29 @@ class FormRequestUser extends FormRequest
         $request = [];
         if($this->method() == "PUT") {
             return [
-                'name' => 'required',
-                'age' => 'required',
-                'email' => 'required' ];
+                'name' => 'required|string|max:255',
+                'age' => [
+                    'required',
+                    'integer'
+                ],
+                'email' =>
+                    'required',
+                    'email',
+                    'unique:users'
+                ];
         }
         return $request;
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Campo Nome é obrigatório',
+            'age.required' => 'Campo Idade é obrigatório',
+            'age.integer' => 'Campo Idade é deve ser do tipo número',
+            'email.required' => 'Campo E-mail é obrigatório',
+            'email.email' => 'Campo E-mail inválido'
+        ];
+
     }
 }

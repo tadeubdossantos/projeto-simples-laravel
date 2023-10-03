@@ -5,9 +5,14 @@
         <h1 class="h2">Usuários</h1>
     </div>
     <div>
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <form action="{{ route('atualiza', $findUser->id) }}" class="form" method="POST">
             @csrf
-           @method('PUT')
+            @method('PUT')
             <div class="mb-3">
                 <label class="form-label">Nome</label>
                 <input type="text" value="{{ isset($findUser->name) ? $findUser->name : old('name') }}"
@@ -40,6 +45,7 @@
             </div>
 
             <button type="submit" class="btn btn-success">Gravar</button>
+            <a href="/"><button type="button" class="btn btn-danger">Voltar</button></a>
         </form>
     </div>
 @endsection

@@ -5,6 +5,11 @@
         <h1 class="h2">Usuários</h1>
     </div>
     <div>
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="table-responsive mt-4">
             <table class="table table-hover">
                 <thead>
@@ -19,13 +24,15 @@
                 <tbody>
                     @foreach ($users as $user)
                         <tr>
-                            <th scope="row">{{ $user['id']}}</th>
-                            <th scope="row">{{ $user['name']}}</th>
-                            <th scope="row">{{ $user['age']}}</th>
-                            <th scope="row">{{ $user['email']}}</th>
+                            <th scope="row">{{ $user['id'] }}</th>
+                            <th scope="row">{{ $user['name'] }}</th>
+                            <th scope="row">{{ $user['age'] }}</th>
+                            <th scope="row">{{ $user['email'] }}</th>
                             <th scope="row">
-                                <a href="{{ route('atualiza', $user->id) }}"><button type="button" class="btn btn-success">Alterar</button></a>
-                                <a href=""><button type="button" class="btn btn-danger">Excluir</button></a>
+                                <a href="{{ route('atualiza', $user->id) }}"><button type="button"
+                                        class="btn btn-success">Alterar</button></a>
+                                <a href="{{ route('exclui', $user->id) }}"><button type="button"
+                                        class="btn btn-danger">Excluir</button></a>
                             </th>
 
                         </tr>
