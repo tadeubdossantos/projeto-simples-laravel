@@ -16,4 +16,6 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', [UserController::class, 'index']);
-Route::get('/atualizar', [UserController::class, 'getDataFromAPI'])->name('atualizar');
+Route::get('/users_api', [UserController::class, 'getDataFromAPI'])->name('user_api');
+Route::get('/atualiza/{id}', [UserController::class, 'update'])->name('atualiza');
+Route::put('/atualiza/{id}', [UserController::class, 'update'])->name('atualiza');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\user;
 use Illuminate\Support\Facades\Http;
+use App\Http\Requests\FormRequestUser;
 
 class UserController extends Controller
 {
@@ -36,5 +37,11 @@ class UserController extends Controller
     public function index() {
         $users = User::paginate(10);
         return view('pages.users.paginacao', compact('users'));
+    }
+
+    public function update(FormRequestUser $request, $id) {
+
+        $findUser = USER::where('id', $id)->first();
+        return view('pages.users.atualiza', compact('findUser'));
     }
 }

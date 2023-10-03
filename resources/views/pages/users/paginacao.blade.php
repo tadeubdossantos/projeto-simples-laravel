@@ -13,6 +13,7 @@
                         <th scope="col">Nome</th>
                         <th scope="col">Idade</th>
                         <th scope="col">E-mail</th>
+                        <th scope="col">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,11 @@
                             <th scope="row">{{ $user['name']}}</th>
                             <th scope="row">{{ $user['age']}}</th>
                             <th scope="row">{{ $user['email']}}</th>
+                            <th scope="row">
+                                <a href="{{ route('atualiza', $user->id) }}"><button type="button" class="btn btn-success">Alterar</button></a>
+                                <a href=""><button type="button" class="btn btn-danger">Excluir</button></a>
+                            </th>
+
                         </tr>
                     @endforeach
                 </tbody>
