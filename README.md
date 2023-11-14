@@ -1,5 +1,5 @@
 ## INTRODUÇÃO
-Este é um projeto full stack simples que faz a integração com uma API de usuários (https://run.mocky.io/v3/ce47ee53-6531-4821-a6f6-71a188eaaee0) para coletar dados de usuários e armazená-los no banco de dados da aplicação. A aplicação oferece uma interface que exibe os registros de usuários em uma tabela com suporte à paginação, exibindo 10 registros por página. Os usuários têm a opção de editar ou excluir esses registros de acordo com suas preferências.
+Este é um projeto full stack simples que faz a integração com uma API de usuários fictícios (https://run.mocky.io/v3/ce47ee53-6531-4821-a6f6-71a188eaaee0) para coletar os dados deles e armazená-los no banco de dados da aplicação. Esta oferece uma interface que exibe os registros destes usuários em uma tabela com suporte à paginação, exibindo 10 registros por página. O usuário do sistema têm a opção de editar ou excluir esses registros de acordo com suas preferências.
 
 ## DESENVOLVIMENTO
 Este projeto foi desenvolvido com a utilização do framework Laravel no lado do servidor, enquanto para a interface do usuário, utilizou-se o Blade e o Bootstrap. Quanto à persistência de dados, optou-se por empregar o banco de dados MySQL, através do ambiente de desenvolvimento Xampp.
